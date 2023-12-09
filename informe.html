@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas Cordano - Informe Prueba Técnica</title>
+    <meta name="author" content="Nicolás Cordano">
+</head>
+
+<body style="background-color: rgb(16, 15, 22); color: rgb(248, 228, 228); font-size: 20px">
+
+    <header>
+    <h1 style="text-align:center; color:cadetblue; font-size: 70px"><b><u>Informe de la prueba técnica hecha por Nicolás Cordano</u></b></h1>
+        <p> En esta prueba técnica utilice Selenium con Python, ademas de incorporar frameworks como Behave, Unittest y HtmlTestRunner,
+            los cuales se encuentran en el archivo "fw.py". El webdriver corre con el navegador Google Chrome. En el archivo "objects.py" se encuentran los Page Objects y también los Users utilizados para las pruebas.
+            En la parte de reports apareceran los reportes de cada run del Test Case seleccionado.
+        </p>
+    <hr>
+        <a href="#primer-caso">> Ir al Primer Caso de Prueba</a> <br>
+        <a href="#segundo-caso">> Ir al Segundo Caso de Prueba</a> <br>
+        <a href="#tercer-caso">> Ir al Tercero Caso de Prueba</a><br>
+        <a href="#cuarto-caso">> Ir al Cuarto Caso de Prueba</a><br>
+        <a href="#quinto-caso">> Ir al Quinto Caso de Prueba</a><br>
+        <a href="#sexto-caso">> Ir al Sexto Caso de Prueba</a><br>
+    <hr>
+    </header>
+
+    <article>
+        <h2 id="primer-caso" style="color:cadetblue"><u>PRIMER CASO DE PRUEBA (HAPPY PATH)</u></h2>
+        <h3><i>Given</i></h3>
+        <img src="assets/TC1/TC1_Given.png" alt="Given del primer caso de prueba" title="Given del primer caso de prueba" >
+            <p> En este paso lo que se verifica
+                es que estamos correctamente ubicados en la pantalla de registro de usuarios
+                mediante un explicit wait el cual se busca que el titulo de la página de registro de usuarios
+                sea el mismo que estamos validando. Aca esperamos hasta 10 segundos, si no se logra identificar
+                entonces el test falla.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>When - Then</i></h3>
+        <img src="assets/TC1/TC1_When_Then.png" alt="When y Then del primer caso de prueba" title="When y Then del primer paso de prueba" >
+            <p> En estos pasos lo que se verifica es que una vez completados los campos de registro con datos validos
+                estos mismos se puedan visualizar en la tabla de usuarios registrados. Acá lo que se realiza
+                es el registro de usuarios y mediante un "try" se busca con un explicit wait que el boton de registro
+                se encuentre y sea clickeable, una vez conseguido esto se procede a oprimir el boton.
+            </p>
+    </article>
+    <hr>
+
+
+    <article>
+        <h2 id="segundo-caso" style="color:cadetblue"><u>SEGUNDO CASO DE PRUEBA</u></h2>
+        <h3><i>Given</i></h3>
+        <img src="assets/TC2/TC2_Given.png" alt="Given del segundo caso de prueba" title="Given del segundo caso de prueba" >
+            <p>  En este paso nuevamente lo que se verifica
+                es que estamos correctamente ubicados en la pantalla de registro de usuarios
+                mediante un explicit wait el cual se busca que el titulo de la página de registro de usuarios
+                sea el mismo que estamos validando. Aca esperamos hasta 10 segundos, si no se logra identificar
+                entonces el test falla.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>When</i></h3>
+        <img src="assets/TC2/TC2_When.png" alt="When del segundo caso de prueba" title="When del segundo caso de prueba" >
+            <p> En este paso se ingresan datos incorrectos en los campos de registro de usuarios. Mediante un explicit wait
+                lo que se busca es que una vez encontrado el boton de registro, lo ejecutamos para que aparezcan los mensajes de error.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>Then</i></h3>
+        <img src="assets/TC2/TC2_Then.png" alt="Then del segundo caso de prueba" title="Then del segundo caso de prueba" >
+            <p> En este paso una vez ingresados los datos incorrectos en los campos de registro de usuarios, validamos mediante un explicit await
+                que los mensajes de error "Por favor, insira um nome completo.", "Por favor, insira um e-mail válido.", "A senha deve conter ao menos 8 caracteres."
+                aparezcan acorde a la funcionalidad dada.
+            </p>
+    </article>
+    <hr>
+
+    <article>
+        <h2 id="tercer-caso" style="color:cadetblue"><u>TERCER CASO DE PRUEBA</u></h2>
+        <h3><i>Given</i></h3>
+        <img src="assets/TC3/TC3_Given.png" alt="Given del tercer caso de prueba" title="Given del tercer caso de prueba" >
+            <p> En este paso nuevamente lo que se verifica
+                es que estamos correctamente ubicados en la pantalla de registro de usuarios
+                mediante un explicit wait, el cual se busca que el titulo de la página de registro de usuarios
+                sea el mismo que estamos validando. Aca esperamos hasta 10 segundos, si no se logra identificar
+                entonces el test falla.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>When - Then</i></h3>
+        <img src="assets/TC3/TC3_When_Then.png" alt="When y Then del tercer caso de prueba" title="When y Then del tercer caso de prueba" >
+            <p>  En estos pasos ingresamos un nombre de manera incorrecta (en este caso un solo nombre, cuando lo que se pide son dos nombres),
+                y tiene que aparecer el mensaje de error "Por favor, insira um nome completo.". Nuevamente lo validamos mediante un explicit await donde buscamos
+                que dicho error aparezca en pantalla.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>Then</i></h3>
+        <img src="assets/TC3/TC3_Then.png" alt="When y Then del tercer caso de prueba" title="When y Then del tercer caso de prueba" >
+            <p> En este paso se realiza el registro de tres usuarios y se verifica la cantidad de filas en la tabla utilizando la función 'len' para obtener este valor.
+                Posteriormente, se registra un nuevo usuario (de manera incorrecta) y se realiza una verificación adicional para asegurar que la tabla no haya sido modificada (mediante un 'assert').
+                Este proceso valida que la tabla permanece inalterada cuando un usuario se intenta registrar con un nombre incorrecto que provoca un mensaje de error en el login. 
+            </p>
+    </article>
+    <hr>
+
+    <article>
+        <h2 id="cuarto-caso" style="color:cadetblue"><u>CUARTO CASO DE PRUEBA</u></h2>
+        <h3><i>Given</i></h3>
+        <img src="assets/TC4/TC4_Given.png" alt="Given del cuarto caso de prueba" title="Given del cuarto caso de prueba" >
+            <p> En este paso nuevamente lo que se verifica
+                es que estamos correctamente ubicados en la pantalla de registro de usuarios
+                mediante un explicit wait el cual se busca que el titulo de la página de registro de usuarios
+                sea el mismo que estamos validando. Aca esperamos hasta 10 segundos, si no se logra identificar
+                entonces el test falla.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>When</i></h3>
+        <img src="assets/TC4/TC4_When.png" alt="When del cuarto caso de prueba" title="When del cuarto caso de prueba" >
+            <p> En este paso se hace click en el boton de registro sin haber completado ningun campo de registro.
+            </p>
+    </article>
+
+    <article>
+        <h3><i>Then</i></h3>
+        <img src="assets/TC4/TC4_Then.png" alt="Then del cuarto caso de prueba" title="Then del cuarto caso de prueba" >
+            <p> Este paso valida la acción de hacer clic en el botón de registro sin completar ningún campo. 
+                Se verifica que aparezcan los mensajes de error específicos, tales como: 'O campo Nome é obrigatório.', 'O campo E-mail é obrigatório.', 'O campo Senha é obrigatório.'
+                Esto se realiza mediante un 'explicit await', asegurando que los mensajes de error aparezcan de manera adecuada.
+            </p>
+    </article>
+    <hr>
+
+    <article>
+        <h2 id="quinto-caso" style="color:cadetblue"><u>QUINTO CASO DE PRUEBA</u></h2>
+        <h3><i>Given - When - Then</i></h3>
+        <img src="assets/TC5/TC5_Given_When_Then.png" alt="Given When Then del quinto caso de prueba" title="Given When Then del quinto caso de prueba" >
+            <p> Estos pasos validan la funcionalidad del botón 'Eliminar usuario' a través del registro de tres usuarios.
+                Durante este proceso, se registran tres usuarios en la plataforma, y luego se elimina específicamente el segundo usuario.
+                Este procedimiento asegura que, tras la eliminación, solamente queden registrados el primer y tercer usuario en la plataforma.
+            </p>
+    </article>
+    <hr>
+
+    <article>
+        <h2 id="sexto-caso" style="color:cadetblue"><u>SEXTO CASO DE PRUEBA</u></h2>
+        <h3><i>Given - When - Then</i></h3>
+        <img src="assets/TC6/TC6_Given_When_Then.png" alt="Given When Then del sexto caso de prueba" title="Given When Then del sexto caso de prueba" >
+            <p> Estos pasos validan que al haber tres usuarios registrados y eliminar el segundo usuario, no se altere el orden de las identificaciones de los usuarios. 
+                Esto se verifica mediante un proceso de comparación, el cual se utiliza un assert para confirmar que los datos en las celdas (td) de la tabla permanezcan igualmente ordenados después de la eliminación.
+                Este cálculo se realiza comparando la tabla original con una versión ordenada de la misma.
+            </p>
+    </article>
+    <hr>
+
+    <footer style="color:cadetblue" align="center"> Muchas gracias por darme una oportunidad.</footer>
+
+</body>
+
+</html>
